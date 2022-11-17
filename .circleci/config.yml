@@ -25,17 +25,19 @@ jobs:
             # pytest -v --cov=calculator
             pytest --junitxml=test-results/junit.xml
 
-      - store_test_results:
-          path: test-results
-
       # Step 4: Deploy
       - run:
           name: deploy
           command: |
             dir=DEPLOY-$(date +"%Y%m%d-%H:%M:%S")
-            mkdir $dir
-            cp ./calculator/calculator.py ./$dir
+            mkdir ${dir}
+            cp ./calculator/calculator.py ./${dir}
+
+      - store_test_results:
+          path: test-results
 
       - store_artifacts:
-          path: $dir
+          path: /${dir}
+
+      
             
