@@ -29,15 +29,16 @@ jobs:
       - run:
           name: deploy
           command: |
-            dir=DEPLOY-$(date +"%Y%m%d-%H:%M:%S")
-            mkdir ${dir}
-            cp ./calculator/calculator.py ./${dir}
+            DIR=DEPLOY-$(date +"%Y%m%d-%H:%M:%S")
+            echo $DIR
+            mkdir $DIR
+            cp ./calculator/calculator.py ./$DIR
 
       - store_test_results:
           path: test-results
 
       - store_artifacts:
-          path: /${dir}
+          path: /$DIR
 
       
             
