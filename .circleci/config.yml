@@ -33,6 +33,8 @@ jobs:
             echo $DIR
             mkdir $DIR
             cp ./calculator/calculator.py ./$DIR
+            cd $DIR
+            ls
 
       - store_test_results:
           path: test-results
