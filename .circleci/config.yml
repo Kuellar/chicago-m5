@@ -31,6 +31,7 @@ jobs:
           command: |
             DIR=DEPLOY/DEPLOY-$(date +"%Y%m%d")
             echo $DIR
+            mkdir DEPLOY
             mkdir $DIR
             cp ./calculator/calculator.py ./$DIR
 
