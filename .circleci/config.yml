@@ -28,5 +28,14 @@ jobs:
       - store_test_results:
           path: test-results
 
+      # Step 4: Deploy
+      - run:
+          name: deploy
+          command: |
+            dir=DEPLOY-$(date +"%Y%m%d-%H:%M:%S")
+            mkdir $dir
+            cp ./calculator/calculator.py ./$dir
+
       - store_artifacts:
-          path: test-results
+          path: $dir
+            
