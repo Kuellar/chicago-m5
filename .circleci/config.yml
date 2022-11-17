@@ -24,7 +24,8 @@ jobs:
             flake8 --exclude=venv* --statistics
             # pytest -v --cov=calculator
             pytest --junitxml=test-results/junit.xml
-
+      - store_test_results:
+          path: test-results
       # Step 4: Deploy
       - run:
           name: deploy
@@ -34,10 +35,6 @@ jobs:
             mkdir DEPLOY
             mkdir $DIR
             cp ./calculator/calculator.py ./$DIR
-
-      - store_test_results:
-          path: test-results
-
       - store_artifacts:
           path: DEPLOY
 
