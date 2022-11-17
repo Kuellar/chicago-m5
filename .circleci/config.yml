@@ -38,7 +38,7 @@ jobs:
           path: test-results
 
       - store_artifacts:
-          path: /DEPLOY*
+          path: /$DIR
 
       
             
